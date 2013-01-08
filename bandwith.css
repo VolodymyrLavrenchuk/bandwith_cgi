@@ -1,21 +1,55 @@
-table {
-  margin:0 auto;
-  border-spacing: 1px;
-  border-color: white;
-  border-style: outset;
-  background: #D4D0C8;
+body {
+    background: #D4D0C8;
 }
 
-table tr th {
-  color:#000;
-  font-size: 12pt;
-  font-weight:bold;
-  border-style:outset;
-  border-width:1px;
-  border-color:#ccc #666 #666 #ccc;
-  text-align:center;
-  margin: 4px 4px;
-  background:#ddd;
-  vertical-align:bottom;
+div {
+    width:100%;
+    font-size: 0;
+    text-align: center;
 }
 
+div.core,
+div.cpu-total {
+    border-color: white;
+    border-width: 1px;
+    border-style: outset;
+    margin: 2px;
+}
+
+div.core  {
+    display: inline-block;
+    width: 24%;
+}
+
+object.core-graph {
+   display: inline; 
+   width: 250px;
+   height: 300px;   
+}
+
+div.cpu-total object.cpu-graph {
+    height: 640px;
+}
+
+div.cpu-total {
+    display: inline-block;
+    width: 8%;
+}
+
+div.cpu-history {
+    display: inline-block;
+    width: 91%;
+    vertical-align: top;
+}
+
+div.bottom,
+div.head {
+    font-size: 12pt;
+    font-weight: bold;
+    text-align:center;
+    background: #D4D0C8;
+}
+
+div.bottom {
+    height: 15px;
+}

@@ -38,7 +38,8 @@ if (typeof getURL == 'undefined') {
   }
 }
 
-var SVGDocs = null;
+var SVGDocs_history = null;
+var SVGDoc_cpu = null;
 var last_cpu_total = 0;
 var last_cpu_sys = 0;
 var last_cpu_idle = 0;
@@ -46,35 +47,41 @@ var cpus_data = new Array();
 var cpus_data_sys = new Array();
 var intTimer= null;
 var max_num_points = 120;  // maximum number of plot data points
-var step = 264 / max_num_points;  // plot X division size
+var step = 250 / max_num_points;  // plot X division size
 var fetch_interval=1000;
 var fetch_url='/cgi-bin/cpu.cgi';
 var fields = null;
 
-function add_grid(SVGDoc){
+function add_grid(SVGDoc, width, height){
     var grid_step = 12;
     var grid_path = "";
-    for(var i = grid_step*2; i < 300; i+= grid_step){
-        grid_path += "M 2 " + i + " L 264 " + i +" ";
+    for(var i = grid_step*2; i < height; i+= grid_step){
+        grid_path += "M 2 " + i + " L " + width + " " + i +" ";
     }
-    for(var i = grid_step; i < 265; i+= grid_step){
-        grid_path += "M " + i + " " + grid_step*2 + " L " + i + " 300 ";
+    for(var i = grid_step; i < width; i+= grid_step){
+        grid_path += "M " + i + " " + grid_step*2 + " L " + i + " " + height + " ";
     }
     
     SVGDoc.getElementById('grid').setAttributeNS(null, 'd', grid_path);
 }
+
+function get_svgdoc_by_id(id){
+    var embed = document.getElementById(id);
+    try {
+        return embed.getSVGDocument();
+    }
+    catch(exception) {
+        alert('The GetSVGDocument interface is not supported');
+    }
+}
+
 function fill_svg_docs(num) {
-    if(SVGDocs) return;
-    SVGDocs = new Array();
+    if(SVGDocs_history & SVGDoc_cpu) return;
+    SVGDocs_history = new Array();
+    SVGDoc_cpu = get_svgdoc_by_id('cpu');
     for(var i=0;i < num; ++i){
-        var embed = document.getElementById('cpu' + (i+1));
-        try {
-            SVGDocs[i] = embed.getSVGDocument();
-            add_grid(SVGDocs[i]);
-        }
-        catch(exception) {
-            alert('The GetSVGDocument interface is not supported');
-        }
+        SVGDocs_history[i] = get_svgdoc_by_id('cpu' + (i+1));
+        add_grid(SVGDocs_history[i], 250, 300);
     }        
 }
 
@@ -97,7 +104,7 @@ function init_data_arrays(num){
 }
 
 function init() {
-
+    //return;
 	fetch_data();
 	intTimer = setInterval('fetch_data()', fetch_interval);
 	//setInterval('onLocationChange()', 500);
@@ -120,17 +127,24 @@ function fetch_data() {
 	if (fetch_url) {
 		getURL(fetch_url, plot_cpu_data);
 	} else {
-		handle_error();
+		handle_error("fetch_data");
 	}
 }
 
-function draw_graph(data){
+function draw_cpu_usage_graph(data){
+    var usr = parseInt(data[1]);
+    var sys = parseInt(data[2]);
+    SVGDoc_cpu.getElementById('cpu_usage_usr').firstChild.data = '' + usr + '%';
+    SVGDoc_cpu.getElementById('cpu_usage_sys').firstChild.data =  '' + sys + '%';
+}
+
+function draw_history_graph(data){
     var cpu_idx = parseInt(data[fields.CPU]);
     var cpu=parseInt(data[fields.usr]);
 	var cpu_sys=parseInt(data[fields.sys]);
-    if (!isNumber(cpu)) return handle_error();
-    
-    var SVGDoc = SVGDocs[cpu_idx];
+    if (!isNumber(cpu)) return handle_error("draw_history");
+
+    var SVGDoc = SVGDocs_history[cpu_idx];
     var cpu_data = cpus_data[cpu_idx];
     var cpu_data_sys = cpus_data_sys[cpu_idx];
 
@@ -180,9 +194,9 @@ function draw_graph(data){
 //	SVGDoc.getElementById('avg_sys_txt').firstChild.data = formatSpeed(avg_out, unit);
 	
 	y_cpu = 298 - (avg_total * 2.7);
-	var path_avg_total = " M 0 " + y_cpu + " L 264 " + y_cpu;
+	var path_avg_total = " M 0 " + y_cpu + " L 250 " + y_cpu;
 	y_cpu = 298 - (avg_sys * 2.7);
-	var path_avg_sys = " M 0 " + y_cpu + " L 264 " + y_cpu;
+	var path_avg_sys = " M 0 " + y_cpu + " L 250 " + y_cpu;
 
 	SVGDoc.getElementById('avg_total').setAttributeNS(null, 'd', path_avg_total);
 	SVGDoc.getElementById('avg_sys').setAttributeNS(null, 'd', path_avg_sys);
@@ -193,27 +207,32 @@ function draw_graph(data){
 	SVGDoc.getElementById("error").setAttributeNS(null, 'visibility', 'hidden');
 	SVGDoc.getElementById('graph_cpu').setAttributeNS(null, 'd', path_data);
 	SVGDoc.getElementById('graph_cpu_sys').setAttributeNS(null, 'd', path_data_sys);
-	SVGDoc.getElementById('graph_txt').firstChild.data = 'ñur usr: '+Math.round(cpu*10)/10 + '%  sys: '+Math.round(cpu_sys*10)/10 + '%';
-	SVGDoc.getElementById('graph_txt_avg').firstChild.data = 'avg usr: '+Math.round(avg_total*10)/10 + '%  sys: '+Math.round(avg_sys*10)/10 + '%';
+	SVGDoc.getElementById('graph_txt_usr').firstChild.data = 'ñur: '+Math.round(cpu*10)/10 + '% avg: '+Math.round(avg_total*10)/10 + '%';
+	SVGDoc.getElementById('graph_txt_sys').firstChild.data = 'cur: '+Math.round(cpu_sys*10)/10 + '% avg: '+Math.round(avg_sys*10)/10 + '%';    
+	//SVGDoc.getElementById('graph_txt').firstChild.data = 'ñur usr:'+Math.round(cpu*10)/10 + '% sys:'+Math.round(cpu_sys*10)/10 + '%';
+	//SVGDoc.getElementById('graph_txt_avg').firstChild.data = 'avg usr:'+Math.round(avg_total*10)/10 + '% sys:'+Math.round(avg_sys*10)/10 + '%';
 }
 
 function plot_cpu_data(obj) {
 	if (!obj.success || ''==obj.content) {
-		return handle_error();  // getURL failed to get current CPU load data
+		return handle_error("plot_cpu_data");  // getURL failed to get current CPU load data
 	}
+    
+    var num_of_sar_rows = 5;
 
 	try {
         var counter_data = obj.content.split(/\n/);
-        var number_of_cores = (counter_data.length - 1 ) / 2 - 1;
+        var number_of_cores = (counter_data.length - 1 - num_of_sar_rows ) / 2 - 1;
         
         fill_svg_docs( number_of_cores );
         fill_data_fields( counter_data );
         init_data_arrays( number_of_cores );
 
-        var data_idx = (counter_data.length - 1 ) / 2 + 1;
+        draw_cpu_usage_graph(counter_data[counter_data.length - 2].split(/\s+/));
         
-        for (var i = data_idx; i < counter_data.length - 1; ++i) {
-            draw_graph(counter_data[i].split(/\s+/));
+        var history_data_idx = number_of_cores + 2;
+        for (var i = history_data_idx; i < history_data_idx + number_of_cores; ++i) {
+            draw_history_graph(counter_data[i].split(/\s+/));
         }
         
 	} catch (e) {
@@ -222,10 +241,10 @@ function plot_cpu_data(obj) {
 	}
 }
 
-function handle_error() {
+function handle_error(err) {
   //SVGDoc.getElementById("error").setAttributeNS(null, 'visibility', 'visible');
-  console.log("error!!!");
-  fetch_data();
+  console.log(err);
+  //fetch_data();
 }
 
 function isNumber(a) {

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<svg xml:space='preserve' xmlns='http://www.w3.org/2000/svg' 
+	xmlns:xlink='http://www.w3.org/1999/xlink'
+	width='100%' height='100%' 
+	viewBox='0 0 70 640'
+	preserveAspectRatio='none'
+>
+<g id='graph'>
+	<rect id='bg' x1='0' y1='0' width='70' height='640' fill='black' />
+    <path id='grid' d='' stroke='#008040' stroke-width='1' stroke-opacity='0.8' />
+    
+    <text id='cpu_usage_usr' x='5' y='630' fill='#00FF00'>--</text>
+    <text id='cpu_usage_sys' text-anchor='end' x='65' y='630' fill='red'>--</text>
+</g>
+</svg>

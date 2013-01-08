@@ -18,71 +18,65 @@
     <script type="text/javascript" src="bandwith.js"></script>
 </head >
     <body onload="init()">
-        <table align=center border=0>
-            <tr><td></td><td>
-                    <form>
-                        <p align="center">Update time: <select  name="refresh"  onchange="intervalChange(this.value);">
-                            <option value="1">1 second</option>
-                            <option value="2">2 seconds</option>
-                            <option value="5">5 seconds</option>
-                            <option value="10" selected="selected">10 seconds</option>
-                            <option value="30">30 seconds</option>
-                            <option value="60">1 minute</option>
-                            </select>
-                        </p>
-                    </form>
-            </td></tr>
-            <tr><td>
-                    <table width=290>
-                        <tr><th>CPU core 1</th></tr>      
-                        <tr><td><object id="cpu1" type="image/svg+xml" width=290 height=300 data="graph_cpu.svg"></object></td></tr>
-                    </table>
-                </td>
-                <td>
-                    <table width=290>
-                        <tr><th>CPU core 2</th></tr>      
-                        <tr><td><object id="cpu2" type="image/svg+xml" width=290 height=300 data="graph_cpu.svg"></object></td></tr>
-                    </table>
-                </td>
-                <td>
-                    <table width=290>
-                        <tr><th>CPU core 3</th></tr>      
-                        <tr><td><object id="cpu3" type="image/svg+xml" width=290 height=300 data="graph_cpu.svg"></object></td></tr>
-                    </table>
-                </td>
-                <td>
-                    <table width=290>
-                        <tr><th>CPU core 4</th></tr>      
-                        <tr><td><object id="cpu4" type="image/svg+xml" width=290 height=300 data="graph_cpu.svg"></object></td></tr>
-                    </table>
-                </td>
-            </tr><tr>
-                <td>
-                    <table width=290>
-                        <tr><th>CPU core 5</th></tr>      
-                        <tr><td><object id="cpu5" type="image/svg+xml" width=290 height=300 data="graph_cpu.svg"></object></td></tr>
-                    </table>
-                </td>
-                <td>
-                    <table width=290>
-                        <tr><th>CPU core 6</th></tr>      
-                        <tr><td><object id="cpu6" type="image/svg+xml" width=290 height=300 data="graph_cpu.svg"></object></td></tr>
-                    </table>
-                </td>
-                <td>
-                    <table width=290>
-                        <tr><th>CPU core 7</th></tr>      
-                        <tr><td><object id="cpu7" type="image/svg+xml" width=290 height=300 data="graph_cpu.svg"></object></td></tr>
-                    </table>
-                </td>
-                <td>
-                    <table width=290>
-                        <tr><th>CPU core 8</th></tr>      
-                        <tr><td><object id="cpu8" type="image/svg+xml" width=290 height=300 data="graph_cpu.svg"></object></td></tr>
-                    </table>
-                </td>
-
-            </tr>
-        </table>
+        <div>
+            <form>
+                <p align="center">Update time: <select  name="refresh"  onchange="intervalChange(this.value);">
+                    <option value="1">1 second</option>
+                    <option value="2">2 seconds</option>
+                    <option value="5">5 seconds</option>
+                    <option value="10" selected="selected">10 seconds</option>
+                    <option value="30">30 seconds</option>
+                    <option value="60">1 minute</option>
+                    </select>
+                </p>
+            </form>
+        </div>
+        <div class="cpu-total">
+            <div class="head">CPU usage</div>
+            <object class="cpu-graph" id="cpu" type="image/svg+xml" data="graph_cpu_usage.svg"></object>
+            <div class="bottom"></div>
+        </div>
+        <div class="cpu-history">
+            <div class="core">
+                <div class="head">CPU core 1</div>
+                <object class="core-graph" id="cpu1" type="image/svg+xml" data="graph_cpu.svg"></object>
+                <div class="bottom"></div>
+            </div>
+            <div class="core">
+                <div class="head">CPU core 2</div>
+                <object class="core-graph" id="cpu2" type="image/svg+xml" data="graph_cpu.svg"></object>
+                <div class="bottom"></div>
+            </div>        
+            <div class="core">
+                <div class="head">CPU core 3</div>
+                <object class="core-graph" id="cpu3" type="image/svg+xml" data="graph_cpu.svg"></object>
+                <div class="bottom"></div>
+            </div>
+            <div class="core">
+                <div class="head">CPU core 4</div>
+                <object class="core-graph" id="cpu4" type="image/svg+xml" data="graph_cpu.svg"></object>
+                <div class="bottom"></div>
+            </div>
+            <div class="core">
+                <div class="head">CPU core 5</div>
+                <object class="core-graph" id="cpu5" type="image/svg+xml" data="graph_cpu.svg"></object>
+                <div class="bottom"></div>
+            </div>
+            <div class="core">
+                <div class="head">CPU core 6</div>
+                <object class="core-graph" id="cpu6" type="image/svg+xml" data="graph_cpu.svg"></object>
+                <div class="bottom"></div>
+            </div>        
+            <div class="core">
+                <div class="head">CPU core 7</div>
+                <object class="core-graph" id="cpu7" type="image/svg+xml" data="graph_cpu.svg"></object>
+                <div class="bottom"></div>
+            </div>
+            <div class="core">
+                <div class="head">CPU core 8</div>
+                <object class="core-graph" id="cpu8" type="image/svg+xml" data="graph_cpu.svg"></object>
+                <div class="bottom"></div>
+            </div>
+        </div>
     </body>
 </html>
