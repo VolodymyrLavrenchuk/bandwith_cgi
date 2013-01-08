@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Мониторинг полосы пропускания и загрузки процессора</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+    <link rel="stylesheet" type="text/css" href="bandwith.css" />
+
+    <script>
+      function intervalChange(value)
+      {
+    //     document.getElementById("cpu").data="graph_cpu.svg?#"+value;
+    //     document.getElementById("ppp0").data="graph_if.svg?ppp0#"+value;
+    //     document.getElementById("vlan1").data="graph_if.svg?vlan1#"+value;
+    //     document.getElementById("vlan0").data="graph_if.svg?vlan0#"+value;
+    //     document.getElementById("eth1").data="graph_if.svg?eth1#"+value;
+      }
+    </script>
+    <script type="text/javascript" src="bandwith.js"></script>
+</head >
+    <body onload="init()">
+        <table align=center border=0>
+            <tr><td></td><td>
+                    <form>
+                        <p align="center">Update time: <select  name="refresh"  onchange="intervalChange(this.value);">
+                            <option value="1">1 second</option>
+                            <option value="2">2 seconds</option>
+                            <option value="5">5 seconds</option>
+                            <option value="10" selected="selected">10 seconds</option>
+                            <option value="30">30 seconds</option>
+                            <option value="60">1 minute</option>
+                            </select>
+                        </p>
+                    </form>
+            </td></tr>
+            <tr><td>
+                    <table width=290>
+                        <tr><th>CPU core 1</th></tr>      
+                        <tr><td><object id="cpu1" type="image/svg+xml" width=290 height=300 data="graph_cpu.svg"></object></td></tr>
+                    </table>
+                </td>
+                <td>
+                    <table width=290>
+                        <tr><th>CPU core 2</th></tr>      
+                        <tr><td><object id="cpu2" type="image/svg+xml" width=290 height=300 data="graph_cpu.svg"></object></td></tr>
+                    </table>
+                </td>
+                <td>
+                    <table width=290>
+                        <tr><th>CPU core 3</th></tr>      
+                        <tr><td><object id="cpu3" type="image/svg+xml" width=290 height=300 data="graph_cpu.svg"></object></td></tr>
+                    </table>
+                </td>
+                <td>
+                    <table width=290>
+                        <tr><th>CPU core 4</th></tr>      
+                        <tr><td><object id="cpu4" type="image/svg+xml" width=290 height=300 data="graph_cpu.svg"></object></td></tr>
+                    </table>
+                </td>
+            </tr><tr>
+                <td>
+                    <table width=290>
+                        <tr><th>CPU core 5</th></tr>      
+                        <tr><td><object id="cpu5" type="image/svg+xml" width=290 height=300 data="graph_cpu.svg"></object></td></tr>
+                    </table>
+                </td>
+                <td>
+                    <table width=290>
+                        <tr><th>CPU core 6</th></tr>      
+                        <tr><td><object id="cpu6" type="image/svg+xml" width=290 height=300 data="graph_cpu.svg"></object></td></tr>
+                    </table>
+                </td>
+                <td>
+                    <table width=290>
+                        <tr><th>CPU core 7</th></tr>      
+                        <tr><td><object id="cpu7" type="image/svg+xml" width=290 height=300 data="graph_cpu.svg"></object></td></tr>
+                    </table>
+                </td>
+                <td>
+                    <table width=290>
+                        <tr><th>CPU core 8</th></tr>      
+                        <tr><td><object id="cpu8" type="image/svg+xml" width=290 height=300 data="graph_cpu.svg"></object></td></tr>
+                    </table>
+                </td>
+
+            </tr>
+        </table>
+    </body>
+</html>

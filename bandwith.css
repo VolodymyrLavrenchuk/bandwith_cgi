@@ -1,0 +1,21 @@
+table {
+  margin:0 auto;
+  border-spacing: 1px;
+  border-color: white;
+  border-style: outset;
+  background: #D4D0C8;
+}
+
+table tr th {
+  color:#000;
+  font-size: 12pt;
+  font-weight:bold;
+  border-style:outset;
+  border-width:1px;
+  border-color:#ccc #666 #666 #ccc;
+  text-align:center;
+  margin: 4px 4px;
+  background:#ddd;
+  vertical-align:bottom;
+}
+
