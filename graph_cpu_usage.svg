@@ -5,11 +5,20 @@
 	viewBox='0 0 70 640'
 	preserveAspectRatio='none'
 >
-<g id='graph'>
+<g id='graph' shape-rendering='crispEdges'>
 	<rect id='bg' x1='0' y1='0' width='70' height='640' fill='black' />
     <path id='grid' d='' stroke='#008040' stroke-width='1' stroke-opacity='0.8' />
     
-    <text id='cpu_usage_usr' x='5' y='630' fill='#00FF00'>--</text>
-    <text id='cpu_usage_sys' text-anchor='end' x='65' y='630' fill='red'>--</text>
+    <g  stroke-dasharray='1' stroke-width='1' >
+        <path id='grid_usr' d='' stroke='#008040' />
+        <path id='grid_sys' d='' stroke='#800000' />
+    </g>
+    
+    
+    <path id='usr_bar' d='' stroke='#00FF00' stroke-width='2' />
+    <path id='sys_bar' d='' stroke='red' stroke-width='2' />
+    
+    <text id='cpu_usage_usr' x='7' y='630' fill='#00FF00'>--</text>
+    <text id='cpu_usage_sys' text-anchor='end' x='63' y='630' fill='red'>--</text>
 </g>
 </svg>

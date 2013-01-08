@@ -65,6 +65,14 @@ function add_grid(SVGDoc, width, height){
     SVGDoc.getElementById('grid').setAttributeNS(null, 'd', grid_path);
 }
 
+function add_spu_grid(id, x,y){
+    var grid_path = "";
+    for(var i = 0; i < 605; i += 3){
+        grid_path += "M" + x + " " + (y + i) + " l17 0 M" + (x+1) + " " + (y+1+i) +" l17 0";  
+    }
+    SVGDoc_cpu.getElementById(id).setAttributeNS(null, 'd', grid_path);
+}
+
 function get_svgdoc_by_id(id){
     var embed = document.getElementById(id);
     try {
@@ -79,6 +87,8 @@ function fill_svg_docs(num) {
     if(SVGDocs_history & SVGDoc_cpu) return;
     SVGDocs_history = new Array();
     SVGDoc_cpu = get_svgdoc_by_id('cpu');
+    add_spu_grid('grid_usr', 17, 7);
+    add_spu_grid('grid_sys', 37, 7);
     for(var i=0;i < num; ++i){
         SVGDocs_history[i] = get_svgdoc_by_id('cpu' + (i+1));
         add_grid(SVGDocs_history[i], 250, 300);
@@ -131,11 +141,25 @@ function fetch_data() {
 	}
 }
 
+function get_usage_path(percent, x){
+    var ret = "";
+    var cur_y = 610;
+    var num_of_lines = (604 * percent / 100) / 3;
+    for(var i = 0; i < num_of_lines; ++i){
+        ret += "M" + x + " " + cur_y + " l18 0";
+        cur_y -= 3;
+    }
+    return ret;
+}
+
 function draw_cpu_usage_graph(data){
     var usr = parseInt(data[1]);
     var sys = parseInt(data[2]);
     SVGDoc_cpu.getElementById('cpu_usage_usr').firstChild.data = '' + usr + '%';
     SVGDoc_cpu.getElementById('cpu_usage_sys').firstChild.data =  '' + sys + '%';
+    
+    SVGDoc_cpu.getElementById('usr_bar').setAttributeNS(null, 'd', get_usage_path(usr,17));
+    SVGDoc_cpu.getElementById('sys_bar').setAttributeNS(null, 'd', get_usage_path(sys,37));
 }
 
 function draw_history_graph(data){
@@ -201,8 +225,8 @@ function draw_history_graph(data){
 	SVGDoc.getElementById('avg_total').setAttributeNS(null, 'd', path_avg_total);
 	SVGDoc.getElementById('avg_sys').setAttributeNS(null, 'd', path_avg_sys);
 
-	path_data_sys += " L "+ x + " 298 L 2 298 ";
-	path_data += " L "+ x + " 298 L 2 298";
+	//path_data_sys += " L "+ x + " 298 L 2 298 ";
+	//path_data += " L "+ x + " 298 L 2 298";
 
 	SVGDoc.getElementById("error").setAttributeNS(null, 'visibility', 'hidden');
 	SVGDoc.getElementById('graph_cpu').setAttributeNS(null, 'd', path_data);

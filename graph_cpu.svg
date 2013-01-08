@@ -38,7 +38,7 @@ POSSIBILITY OF SUCH DAMAGE.
 	viewBox='0 0 250 300'
 	preserveAspectRatio='none'
 >
-<g id='graph'>
+<g id='graph' shape-rendering='crispEdges'>
 	<rect id='bg' x1='0' y1='0' width='250' height='300' fill='black' />
 
 	<!-- <text id='graph_lbl'  x='145' y='15' fill='white' text-anchor='middle'>CPU core</text> -->
@@ -51,11 +51,13 @@ POSSIBILITY OF SUCH DAMAGE.
 	<text id='grid_txt2' x='250' y='163' fill='#00FF00' font-size='10pt' text-anchor='end'>50%</text>
 	<text id='grid_txt1' x='250' y='95' fill='#00FF00' font-size='10pt' text-anchor='end'>75%</text> -->
 
-    <path id='graph_cpu'  d='' fill='none' stroke='#00FF00' stroke-width='2' stroke-opacity='0.8' />
-	<path id='graph_cpu_sys'  d='' fill='none' stroke='red' stroke-width='2' stroke-opacity='0.8' />
+    <g d='' fill='none' stroke-width='2'>
+        <path id='graph_cpu' stroke='#00FF00' stroke-opacity='0.8' />
+        <path id='graph_cpu_sys' stroke='red' stroke-opacity='0.8' />
 
-	<path id='avg_total' d='' fill='none' stroke='#00FF00' stroke-width='2' stroke-opacity='0.5' />
-	<path id='avg_sys'  d='' fill='none' stroke='red' stroke-width='2' stroke-opacity='0.5' stroke-linecap='round' />
+        <path id='avg_total' stroke='#00FF00' stroke-opacity='0.5' />
+        <path id='avg_sys' stroke='red' stroke-opacity='0.5' stroke-linecap='round' />
+    </g>
 
 	<line id='axis_x' x1='1' y1='299' x2='250' y2='299' stroke='black' />
 	<line id='axis_y' x1='1' y1='299.5' x2='1' y2='0' stroke='black' />
