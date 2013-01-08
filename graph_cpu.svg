@@ -51,7 +51,7 @@ POSSIBILITY OF SUCH DAMAGE.
 	<text id='grid_txt2' x='250' y='163' fill='#00FF00' font-size='10pt' text-anchor='end'>50%</text>
 	<text id='grid_txt1' x='250' y='95' fill='#00FF00' font-size='10pt' text-anchor='end'>75%</text> -->
 
-    <g d='' fill='none' stroke-width='2'>
+    <g d='' fill='none' stroke-width='1'>
         <path id='graph_cpu' stroke='#00FF00' stroke-opacity='0.8' />
         <path id='graph_cpu_sys' stroke='red' stroke-opacity='0.8' />
 
