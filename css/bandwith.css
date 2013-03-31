@@ -2,54 +2,54 @@ body {
     background: #D4D0C8;
 }
 
-div {
+.bandwith div {
     width:100%;
     font-size: 0;
     text-align: center;
 }
 
-div.core,
-div.cpu-total {
+.bandwith div.core,
+.bandwith div.cpu-total {
     border-color: white;
     border-width: 1px;
     border-style: outset;
     margin: 2px;
 }
 
-div.core  {
+.bandwith div.core  {
     display: inline-block;
     width: 24%;
 }
 
-object.core-graph {
+.bandwith object.core-graph {
    display: inline; 
    width: 250px;
    height: 300px;   
 }
 
-div.cpu-total object.cpu-graph {
+.bandwith div.cpu-total object.cpu-graph {
     height: 640px;
 }
 
-div.cpu-total {
+.bandwith div.cpu-total {
     display: inline-block;
     width: 8%;
 }
 
-div.cpu-history {
+.bandwith div.cpu-history {
     display: inline-block;
     width: 91%;
     vertical-align: top;
 }
 
-div.bottom,
-div.head {
+.bandwith div.bottom,
+.bandwith div.head {
     font-size: 12pt;
     font-weight: bold;
     text-align:center;
     background: #D4D0C8;
 }
 
-div.bottom {
+.bandwith div.bottom {
     height: 15px;
 }

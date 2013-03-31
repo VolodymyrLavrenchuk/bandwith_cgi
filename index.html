@@ -3,8 +3,9 @@
 <head>
     <title>Мониторинг полосы пропускания и загрузки процессора</title>
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
-    <link rel="stylesheet" type="text/css" href="bandwith.css" />
-
+    <link rel="stylesheet" type="text/css" href="/css/bandwith.css" />
+    <link rel="stylesheet" type="text/css" href="/css/mainmenu.css" />
+    
     <script>
       function intervalChange(value)
       {
@@ -18,6 +19,13 @@
     <script type="text/javascript" src="bandwith.js"></script>
 </head >
     <body onload="init()">
+        <div class="selectMenu">
+            <ul>
+                <li class=""><a href="index.html">CPU load by cores</a></li>
+                <li class=""><a href="/cgi-bin/hddtemp.cgi?trend=hddtemp">HDD temperature</a></li>
+            </ul>
+        </div>        
+    <!--
         <div>
             <form>
                 <p align="center">Update time: <select  name="refresh"  onchange="intervalChange(this.value);">
@@ -31,51 +39,54 @@
                 </p>
             </form>
         </div>
-        <div class="cpu-total">
-            <div class="head">CPU usage</div>
-            <object class="cpu-graph" id="cpu" type="image/svg+xml" data="graph_cpu_usage.svg"></object>
-            <div class="bottom"></div>
-        </div>
-        <div class="cpu-history">
-            <div class="core">
-                <div class="head">CPU core 1</div>
-                <object class="core-graph" id="cpu1" type="image/svg+xml" data="graph_cpu.svg"></object>
+        -->
+        <div class="bandwith">
+            <div class="cpu-total">
+                <div class="head">CPU usage</div>
+                <object class="cpu-graph" id="cpu" type="image/svg+xml" data="graph_cpu_usage.svg"></object>
                 <div class="bottom"></div>
             </div>
-            <div class="core">
-                <div class="head">CPU core 2</div>
-                <object class="core-graph" id="cpu2" type="image/svg+xml" data="graph_cpu.svg"></object>
-                <div class="bottom"></div>
-            </div>        
-            <div class="core">
-                <div class="head">CPU core 3</div>
-                <object class="core-graph" id="cpu3" type="image/svg+xml" data="graph_cpu.svg"></object>
-                <div class="bottom"></div>
-            </div>
-            <div class="core">
-                <div class="head">CPU core 4</div>
-                <object class="core-graph" id="cpu4" type="image/svg+xml" data="graph_cpu.svg"></object>
-                <div class="bottom"></div>
-            </div>
-            <div class="core">
-                <div class="head">CPU core 5</div>
-                <object class="core-graph" id="cpu5" type="image/svg+xml" data="graph_cpu.svg"></object>
-                <div class="bottom"></div>
-            </div>
-            <div class="core">
-                <div class="head">CPU core 6</div>
-                <object class="core-graph" id="cpu6" type="image/svg+xml" data="graph_cpu.svg"></object>
-                <div class="bottom"></div>
-            </div>        
-            <div class="core">
-                <div class="head">CPU core 7</div>
-                <object class="core-graph" id="cpu7" type="image/svg+xml" data="graph_cpu.svg"></object>
-                <div class="bottom"></div>
-            </div>
-            <div class="core">
-                <div class="head">CPU core 8</div>
-                <object class="core-graph" id="cpu8" type="image/svg+xml" data="graph_cpu.svg"></object>
-                <div class="bottom"></div>
+            <div class="cpu-history">
+                <div class="core">
+                    <div class="head">CPU core 1</div>
+                    <object class="core-graph" id="cpu1" type="image/svg+xml" data="graph_cpu.svg"></object>
+                    <div class="bottom"></div>
+                </div>
+                <div class="core">
+                    <div class="head">CPU core 2</div>
+                    <object class="core-graph" id="cpu2" type="image/svg+xml" data="graph_cpu.svg"></object>
+                    <div class="bottom"></div>
+                </div>        
+                <div class="core">
+                    <div class="head">CPU core 3</div>
+                    <object class="core-graph" id="cpu3" type="image/svg+xml" data="graph_cpu.svg"></object>
+                    <div class="bottom"></div>
+                </div>
+                <div class="core">
+                    <div class="head">CPU core 4</div>
+                    <object class="core-graph" id="cpu4" type="image/svg+xml" data="graph_cpu.svg"></object>
+                    <div class="bottom"></div>
+                </div>
+                <div class="core">
+                    <div class="head">CPU core 5</div>
+                    <object class="core-graph" id="cpu5" type="image/svg+xml" data="graph_cpu.svg"></object>
+                    <div class="bottom"></div>
+                </div>
+                <div class="core">
+                    <div class="head">CPU core 6</div>
+                    <object class="core-graph" id="cpu6" type="image/svg+xml" data="graph_cpu.svg"></object>
+                    <div class="bottom"></div>
+                </div>        
+                <div class="core">
+                    <div class="head">CPU core 7</div>
+                    <object class="core-graph" id="cpu7" type="image/svg+xml" data="graph_cpu.svg"></object>
+                    <div class="bottom"></div>
+                </div>
+                <div class="core">
+                    <div class="head">CPU core 8</div>
+                    <object class="core-graph" id="cpu8" type="image/svg+xml" data="graph_cpu.svg"></object>
+                    <div class="bottom"></div>
+                </div>
             </div>
         </div>
     </body>
