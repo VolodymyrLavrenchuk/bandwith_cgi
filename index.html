@@ -6,25 +6,23 @@
     <link rel="stylesheet" type="text/css" href="/css/bandwith.css" />
     <link rel="stylesheet" type="text/css" href="/css/mainmenu.css" />
     
-    <script>
+<!--    <script>
       function intervalChange(value)
       {
-    //     document.getElementById("cpu").data="graph_cpu.svg?#"+value;
-    //     document.getElementById("ppp0").data="graph_if.svg?ppp0#"+value;
-    //     document.getElementById("vlan1").data="graph_if.svg?vlan1#"+value;
-    //     document.getElementById("vlan0").data="graph_if.svg?vlan0#"+value;
-    //     document.getElementById("eth1").data="graph_if.svg?eth1#"+value;
+         document.getElementById("cpu").data="graph_cpu.svg?#"+value;
+         document.getElementById("ppp0").data="graph_if.svg?ppp0#"+value;
+         document.getElementById("vlan1").data="graph_if.svg?vlan1#"+value;
+         document.getElementById("vlan0").data="graph_if.svg?vlan0#"+value;
+         document.getElementById("eth1").data="graph_if.svg?eth1#"+value;
       }
-    </script>
-    <script type="text/javascript" src="bandwith.js"></script>
+    </script> -->
+    <script type="text/javascript" src="/scripts/common.js"></script>
+    <script type="text/javascript" src="/scripts/mainmenu.js"></script>
+    <script type="text/javascript" src="/scripts/bandwith.js"></script>
 </head >
-    <body onload="init()">
-        <div class="selectMenu">
-            <ul>
-                <li class=""><a href="index.html">CPU load by cores</a></li>
-                <li class=""><a href="/cgi-bin/hddtemp.cgi?trend=hddtemp">HDD temperature</a></li>
-            </ul>
-        </div>        
+    <body>
+        <div id="menu"></div>
+
     <!--
         <div>
             <form>

@@ -113,7 +113,7 @@ function init_data_arrays(num){
     }
 }
 
-function init() {
+function init_bandwith() {
     //return;
 	fetch_data();
 	intTimer = setInterval('fetch_data()', fetch_interval);
@@ -274,3 +274,5 @@ function handle_error(err) {
 function isNumber(a) {
   return typeof a == 'number' && isFinite(a);
 }
+
+addLoadEvent(init_bandwith);

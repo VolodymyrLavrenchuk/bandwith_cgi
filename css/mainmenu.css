@@ -1,4 +1,19 @@
-.selectMenu li {
-    display: inline;
-    list-style-type: none;
+#menu {
+    text-align: center;
+}
+#menu div{
+    width: 200px;
+    height: 25px;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+    display: inline-block;
+}
+#menu div a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 22px;
+}
+#menu div a:hover{
+    text-decoration: none;
 }

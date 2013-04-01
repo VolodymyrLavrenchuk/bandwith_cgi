@@ -25,11 +25,14 @@ print <<END
   <META HTTP-EQUIV="Cache-Control" content="no-cache">
   <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
   <style>
-    body { font-family: Verdana,Tahoma,Arial,Helvetica; font-size:9pt}
     .header { font-size: 16pt; font-weight: 900; }
   </style>
+  <link rel="stylesheet" type="text/css" href="/css/mainmenu.css" />
+  <script type="text/javascript" src="/scripts/common.js"></script>
+  <script type="text/javascript" src="/scripts/mainmenu.js"></script>  
 </head>
 <body bgcolor="#83A4BA" text="#000000" link="#0000FF" vlink="#000080" alink="#FF0000" topMargin='5'>
+<div id="menu"></div>
 <center>
 <span class='header'>$name</span>
 <br><br>
