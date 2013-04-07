@@ -1,4 +1,5 @@
 #! /opt/csw/bin/perl
+use warnings;
 
 my ($name, $descr);
 
@@ -13,6 +14,7 @@ foreach my $i (@values)
 	if ($varname eq 'trend')
 	{
 		$name = $mydata;
+        system ("/var/rrd/${name}_graph.pl");
 	}
 }
 
