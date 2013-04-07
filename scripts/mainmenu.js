@@ -9,7 +9,7 @@ function init_menu(){
     helper.innerHTML = '        <div><a href="/index.html">CPU&nbsp;load&nbsp;by&nbsp;cores</a></div> '+
                        '        <div><a href="#">CPU&nbsp;load&nbsp;total</a></div> '+
                        '        <div><a href="/cgi-bin/graph.pl?trend=hddtemp">HDD&nbsp;temperature</a></div> '+
-                       '        <div><a href="#">Trafic&nbsp;in/out</a></div> '
+                       '        <div><a href="/cgi-bin/graph.pl?trend=traffic">Trafic&nbsp;in/out</a></div> '
 
     menuElement.appendChild(helper)
     

@@ -14,7 +14,7 @@ foreach my $i (@values)
 	if ($varname eq 'trend')
 	{
 		$name = $mydata;
-        system ("/var/rrd/${name}_graph.pl");
+        system ("/var/rrd/graph/${name}_graph.pl");
 	}
 }
 
