@@ -1,5 +1,5 @@
 #! /opt/csw/bin/perl
-
+use warnings;
 use RRDs;
 
 # define location of rrdtool databases

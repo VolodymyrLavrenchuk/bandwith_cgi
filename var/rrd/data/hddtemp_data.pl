@@ -1,4 +1,5 @@
 #! /opt/csw/bin/perl
+use warnings;
 
 use RRDs;
 
