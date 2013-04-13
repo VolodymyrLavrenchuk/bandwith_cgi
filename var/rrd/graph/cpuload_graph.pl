@@ -21,7 +21,7 @@ sub CreateGraph
 {
 	RRDs::graph "$img/cpuload-$_[1].png",
 		"-s -1$_[1]",
-		"-t average CPU usage :: Intel Xeon X3440 Quad-core",
+		"-t Average CPU usage :: Intel Xeon X3440 Quad-core",
 		"--lazy",
 		"-h", "80", "-w", "600",
 		"-a", "PNG",

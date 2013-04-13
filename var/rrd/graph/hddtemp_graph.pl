@@ -33,7 +33,7 @@ sub CreateGraph
     push @graph_array,"80";
     push @graph_array,"-w";
     push @graph_array,"600";
-    push @graph_array,"-u 40";
+    push @graph_array,"-u 41";
     push @graph_array,"-l 32";
     push @graph_array,"-r";
 	push @graph_array,"-aPNG";

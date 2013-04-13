@@ -7,7 +7,7 @@ function init_menu(){
     var helper, menuElement = document.getElementById('menu')
     helper = document.createElement('helper')
     helper.innerHTML = '        <div><a href="/index.html">CPU&nbsp;load&nbsp;by&nbsp;cores</a></div> '+
-                       '        <div><a href="/cgi-bin/graph.pl?trend=cpuload"">CPU&nbsp;load&nbsp;total</a></div> '+
+                       '        <div><a href="/cgi-bin/graph.pl?trend=cpuload">CPU&nbsp;load&nbsp;total</a></div> '+
                        '        <div><a href="/cgi-bin/graph.pl?trend=hddtemp">HDD&nbsp;temperature</a></div> '+
                        '        <div><a href="/cgi-bin/graph.pl?trend=traffic">Trafic&nbsp;in/out</a></div> '
 

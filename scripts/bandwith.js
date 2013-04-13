@@ -80,6 +80,8 @@ function get_svgdoc_by_id(id){
     }
     catch(exception) {
         alert('The GetSVGDocument interface is not supported');
+        clearInterval(intTimer);
+        throw exception;
     }
 }
 
@@ -261,7 +263,7 @@ function plot_cpu_data(obj) {
         
 	} catch (e) {
         console.log(e)
-		return;
+		throw e;
 	}
 }
 
