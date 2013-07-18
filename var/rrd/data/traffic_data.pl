@@ -7,7 +7,8 @@ use RRDs;
 my $rrd = '/var/lib/rrd';
 
 # process data for each interface (add/delete as required)
-&ProcessInterface("e1000g1");
+&ProcessInterface("e1000g0","4");
+&ProcessInterface("e1000g1","5");
 
 sub ProcessInterface
 {
@@ -16,8 +17,8 @@ sub ProcessInterface
 #	  $_[1]: interface description 
 
 	# get network interface info
-	my $in = `snmpget -v 1 -c public -Oqv localhost IF-MIB::ifInOctets.5`;
-	my $out = `snmpget -v 1 -c public -Oqv localhost IF-MIB::ifOutOctets.5`;
+	my $in = `snmpget -v 1 -c public -Oqv localhost IF-MIB::ifInOctets.$_[1]`;
+	my $out = `snmpget -v 1 -c public -Oqv localhost IF-MIB::ifOutOctets.$_[1]`;
 
 	# remove eol chars
 	chomp($in);
