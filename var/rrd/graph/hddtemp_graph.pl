@@ -33,8 +33,8 @@ sub CreateGraph
     push @graph_array,"80";
     push @graph_array,"-w";
     push @graph_array,"600";
-    push @graph_array,"-u 43";
-    push @graph_array,"-l 35";
+    push @graph_array,"-u 41";
+    push @graph_array,"-l 33";
     push @graph_array,"-r";
 	push @graph_array,"-aPNG";
     push @graph_array,"-v degrees C";
