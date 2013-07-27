@@ -3,7 +3,7 @@
 use RRDs;
 use warnings;
 
-my $rrd = '/var/lib/rrd/cpuload.rrd';
+my $rrd = '/var/lib/rrd/cputemp.rrd';
 
 
 print RRDs::dump $rrd;
