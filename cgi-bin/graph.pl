@@ -1,7 +1,7 @@
 #! /opt/csw/bin/perl
 use warnings;
 
-my ($name, $descr);
+my $name;
 
 # get the server name (or you could hard code some description here)
 #my $svrname = $ENV{'SERVER_NAME'};

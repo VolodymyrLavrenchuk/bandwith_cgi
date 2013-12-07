@@ -55,3 +55,4 @@ sub ProcessInterface
 		"N:$in:$out";
 }
 
+1;

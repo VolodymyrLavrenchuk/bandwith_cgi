@@ -15,7 +15,7 @@ foreach $drive(@drives)
     my $driveColor = $drive->[$eDriveColor];    
     
     
-    push @graphs_data,[$driveName,"temp",$driveColor,$driveSN,"%2.lf"];
+    push @graphs_data,[$driveName,$driveName,$driveColor,$driveSN,"%2.lf"];
 }
 
 my @opt = ();

@@ -6,3 +6,4 @@ our $cpu_used;
 
 ProcessTable("cpuload",ceil($cpu_used));
 
+1;
