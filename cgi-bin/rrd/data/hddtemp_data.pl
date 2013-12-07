@@ -7,7 +7,7 @@ use RRDs;
 my $rrd = '/var/lib/rrd';
 
 # process data for each specified HDD (add/delete as required)
-require "/var/rrd/common/disk_list.pl";
+require "/www/cgi-bin/rrd/common/disk_list.pl";
 
 my $iDrive  = 0;
 our ($eDriveName, $eDriveSN, $eDriveColor);

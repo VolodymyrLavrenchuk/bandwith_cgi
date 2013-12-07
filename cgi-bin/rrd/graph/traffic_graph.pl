@@ -1,8 +1,8 @@
 #! /opt/csw/bin/perl
 use warnings;
 
-require "/var/rrd/common/build_graphs.pl";
-require "/var/rrd/common/network_list.pl";
+require "/www/cgi-bin/rrd/common/build_graphs.pl";
+require "/www/cgi-bin/rrd/common/network_list.pl";
 
 our ($eIfaceName, $eColorIn, $eColorOut);
 

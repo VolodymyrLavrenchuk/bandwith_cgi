@@ -6,7 +6,7 @@ use RRDs;
 my $rrd = '/var/lib/rrd';
 
 # define location of images
-my $img = '/www/rrd';
+my $img = '/www/images';
 
 sub BuildGraphs
 {

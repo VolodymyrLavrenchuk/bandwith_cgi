@@ -14,7 +14,7 @@ foreach my $i (@values)
 	if ($varname eq 'trend')
 	{
 		$name = $mydata;
-        system ("/var/rrd/graph/${name}_graph.pl");
+        system ("/www/cgi-bin/rrd/graph/${name}_graph.pl");
 	}
 }
 
@@ -44,19 +44,19 @@ END
 print <<END
 Daily Graph (5 minute averages)
 <br>
-<img src='/rrd/$name-day.png'>
+<img src='/images/$name-day.png'>
 <br>
 Weekly Graph (30 minute averages)
 <br>
-<img src='/rrd/$name-week.png'>
+<img src='/images/$name-week.png'>
 <br>
 Monthly Graph (2 hour averages)
 <br>
-<img src='/rrd/$name-month.png'>
+<img src='/images/$name-month.png'>
 <br>
 Yearly Graph (12 hour averages)
 <br>
-<img src='/rrd/$name-year.png'>
+<img src='/images/$name-year.png'>
 END
 ;
 

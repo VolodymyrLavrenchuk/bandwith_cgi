@@ -1,0 +1,2 @@
+#!/bin/sh
+smartctl -i -c -A -l error -d sat,12 /dev/rdsk/"$1" | grep Temperature | awk '{print $10}'

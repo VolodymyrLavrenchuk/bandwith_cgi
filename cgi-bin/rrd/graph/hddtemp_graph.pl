@@ -1,9 +1,8 @@
 #! /opt/csw/bin/perl
 use warnings;
 
-require "/var/rrd/common/build_graphs.pl";
-# process data for each specified HDD (add/delete as required)
-require "/var/rrd/common/disk_list.pl";
+require "/www/cgi-bin/rrd/common/build_graphs.pl";
+require "/www/cgi-bin/rrd/common/disk_list.pl";
 
 
 our ($eDriveName, $eDriveSN, $eDriveColor);

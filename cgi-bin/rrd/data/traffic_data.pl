@@ -7,7 +7,7 @@ use RRDs;
 my $rrd = '/var/lib/rrd';
 
 # process data for each interface (add/delete as required)
-require "/var/rrd/common/network_list.pl";
+require "/www/cgi-bin/rrd/common/network_list.pl";
 
 my $iIface  = 0;
 our ($eIfaceName, $eIfaceNumber);

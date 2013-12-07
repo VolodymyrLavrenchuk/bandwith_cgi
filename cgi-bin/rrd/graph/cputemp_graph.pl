@@ -1,7 +1,7 @@
 #! /opt/csw/bin/perl
 use warnings;
 
-require "/var/rrd/common/build_graphs.pl";
+require "/www/cgi-bin/rrd/common/build_graphs.pl";
 
 my @graphs_data = (["cputemp","cputemp","0000FF","","%2.1lf"]);
 my @opt = ();
