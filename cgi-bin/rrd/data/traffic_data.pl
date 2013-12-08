@@ -9,14 +9,8 @@ my $rrd = '/var/lib/rrd';
 # process data for each interface (add/delete as required)
 require "/www/cgi-bin/rrd/common/network_list.pl";
 
-my $iIface  = 0;
-our ($eIfaceName, $eIfaceNumber);
-
-for ($iIface = 0; $iIface < (int @ifaces); $iIface++)
-{
-    my $ifaceName = $ifaces[$iIface][$eIfaceName];
-    my $ifaceNumber = $ifaces[$iIface][$eIfaceNumber];
-    &ProcessInterface($ifaceName, $ifaceNumber);
+for $iface(@ifaces){
+    &ProcessInterface($iface->{name}, $iface->{number});
 }
 
 sub ProcessInterface
