@@ -6,8 +6,10 @@ use RRDs;
 # define location of rrdtool databases
 my $rrd = '/var/lib/rrd';
 
+my ($cur_dir) = __FILE__ =~ m{^(.*)/};
+
 # process data for each interface (add/delete as required)
-require "/www/cgi-bin/rrd/common/network_list.pl";
+require "$cur_dir/../common/network_list.pl";
 
 for $iface(@ifaces){
     &ProcessInterface($iface->{name}, $iface->{number});

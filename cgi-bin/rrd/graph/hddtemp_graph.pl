@@ -1,8 +1,9 @@
 #! /opt/csw/bin/perl
 use warnings;
 
-require "/www/cgi-bin/rrd/common/build_graphs.pl";
-require "/www/cgi-bin/rrd/common/disk_list.pl";
+my ($cur_dir) = __FILE__ =~ m{^(.*)/};
+require "$cur_dir/../common/build_graphs.pl";
+require "$cur_dir/../common/disk_list.pl";
 
 our @drives;
 
@@ -18,6 +19,4 @@ for $drive (@drives){
 my @opt = ();
 BuildGraphs("hdd temperature :: hard disk drives", "hddtemp", "degrees C",\@opt,@graphs_data);
 
-
-
-
+1;

@@ -2,6 +2,7 @@
 use warnings;
 
 my $name;
+my ($cur_dir) = __FILE__ =~ m{^(.*)/};
 
 # get the server name (or you could hard code some description here)
 #my $svrname = $ENV{'SERVER_NAME'};
@@ -14,7 +15,7 @@ foreach my $i (@values)
 	if ($varname eq 'trend')
 	{
 		$name = $mydata;
-        system ("/www/cgi-bin/rrd/graph/${name}_graph.pl");
+        require "$cur_dir/graph/${name}_graph.pl";
 	}
 }
 

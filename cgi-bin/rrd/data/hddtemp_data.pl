@@ -1,9 +1,10 @@
 #! /opt/csw/bin/perl
 use warnings;
-use FindBin;
 
-require "$FindBin::Bin/common/update_table.pl";
-require "$FindBin::Bin/common/disk_list.pl";
+my ($cur_dir) = __FILE__ =~ m{^(.*)/};
+
+require "$cur_dir/../common/update_table.pl";
+require "$cur_dir/../common/disk_list.pl";
 
 for $drive (@drives){
     &ProcessHDD($drive->{name}, $drive->{sn});

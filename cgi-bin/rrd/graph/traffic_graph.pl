@@ -1,8 +1,8 @@
 #! /opt/csw/bin/perl
 use warnings;
-
-require "/www/cgi-bin/rrd/common/build_graphs.pl";
-require "/www/cgi-bin/rrd/common/network_list.pl";
+my ($cur_dir) = __FILE__ =~ m{^(.*)/};
+require "$cur_dir/../common/build_graphs.pl";
+require "$cur_dir/../common/network_list.pl";
 
 our @ifaces;
 
@@ -14,3 +14,4 @@ for $iface (@ifaces){
 my @opt = ("-l 0");
 BuildGraphs("traffic on Tiera", "traffic", "bytes/sec",\@opt,@graphs_data);
 
+1;

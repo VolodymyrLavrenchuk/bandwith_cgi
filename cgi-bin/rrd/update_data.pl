@@ -1,8 +1,14 @@
 #! /opt/csw/bin/perl
 
-use FindBin;
+my ($cur_dir) = __FILE__ =~ m{^(.*)/};
+my ($data_dir) = "$cur_dir/data";
 
-require "$FindBin::Bin/data/hddtemp_data.pl";
-require "$FindBin::Bin/data/traffic_data.pl";
-require "$FindBin::Bin/data/cpu_load_data.pl";
-require "$FindBin::Bin/data/cpu_temp_data.pl";
+opendir my $dir, $data_dir or die "Cannot open directory: $!";
+my @modules = readdir $dir;
+closedir $dir;
+
+foreach (@modules){
+    if (-f $data_dir . "/" . $_ ){
+        require "$data_dir/$_";
+    }
+}

@@ -1,9 +1,11 @@
 #! /opt/csw/bin/perl
 use POSIX;
-require '/www/cgi-bin/rrd/common/update_table.pl';
-require '/www/cgi-bin/rrd/common/cpu_load.pl';
-our $cpu_used;
 
-ProcessTable("cpuload",ceil($cpu_used));
+my ($cur_dir) = __FILE__ =~ m{^(.*)/};
+
+require "$cur_dir/../common/update_table.pl";
+require "$cur_dir/../common/cpu_load.pl";
+our $cpu_used;
+&ProcessTable("cpuload",ceil($cpu_used));
 
 1;
