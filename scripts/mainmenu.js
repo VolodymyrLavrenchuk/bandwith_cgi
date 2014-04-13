@@ -4,28 +4,29 @@ var opLow  = 20;  // lowest opacity level (should be the same as initial opacity
 // register onLoad event with anonymous function
 function init_menu(){
     
-    var helper, menuElement = document.getElementById('menu')
-    helper = document.createElement('helper')
+    var helper, menuElement = document.getElementById('menu');
+    helper = document.createElement('helper');
     helper.innerHTML = '        <div><a href="/index.html">CPU&nbsp;load&nbsp;by&nbsp;cores</a></div> '+
                        '        <div><a href="/cgi-bin/rrd/graph.pl?trend=cpuload">CPU&nbsp;load</a></div> '+
                        '        <div><a href="/cgi-bin/rrd/graph.pl?trend=cputemp">CPU&nbsp;temperature</a></div> '+                       
                        '        <div><a href="/cgi-bin/rrd/graph.pl?trend=hddtemp">HDD&nbsp;temperature</a></div> '+
-                       '        <div><a href="/cgi-bin/rrd/graph.pl?trend=traffic">Trafic&nbsp;in/out</a></div> '
+                       '        <div><a href="/cgi-bin/rrd/graph.pl?trend=traffic">Trafic&nbsp;in/out</a></div> ' +
+                       '        <div><a href="/cgi-bin/rrd/graph.pl?trend=network">Local&nbsp;network</a></div> ';
 
-    menuElement.appendChild(helper)
+    menuElement.appendChild(helper);
     
     while (helper.firstChild) {
          //Also removes child nodes from 'foo'
         menuElement.insertBefore(helper.firstChild, helper)
     }
     // Remove 'foo' element from target element
-    menuElement .removeChild(helper)    
+    menuElement .removeChild(helper);
 
     //  collect menu items and attach onMouseOver and onMouseOut events
     var mi = document.getElementById('menu').getElementsByTagName('a');
     for (var i=0; i<mi.length; i++){
-        mi[i].onmouseover = function(e) {fade(this, opLow,  10)} // fade in  - positive step
-        mi[i].onmouseout  = function(e) {fade(this, opHigh,-10)} // fade out - negative step
+        mi[i].onmouseover = function() {fade(this, opLow,  10)}; // fade in  - positive step
+        mi[i].onmouseout  = function() {fade(this, opHigh,-10)}; // fade out - negative step
     }
 }
  

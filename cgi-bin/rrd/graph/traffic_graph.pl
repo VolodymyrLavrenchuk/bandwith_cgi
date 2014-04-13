@@ -2,7 +2,7 @@
 use warnings;
 my ($cur_dir) = __FILE__ =~ m{^(.*)/};
 require "$cur_dir/../common/build_graphs.pl";
-require "$cur_dir/../common/network_list.pl";
+require "$cur_dir/../common/traffic_list.pl";
 
 our @ifaces;
 
