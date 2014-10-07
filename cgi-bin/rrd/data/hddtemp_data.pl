@@ -12,7 +12,7 @@ for $drive (@drives){
 
 sub ProcessHDD
 {
-	my $temp = `smartctl -i -c -A -l error -d sat,12 /dev/rdsk/$_[0]d0s0 | grep Temperature | awk '{print \$10}'`;
+	my $temp = `smartctl -i -c -A -l error -d sat,12 /dev/rdsk/$_[0]d0s0 | grep Temperature_Celsius | awk '{print \$10}'`;
 
 	# remove eol chars and white space
 	$temp =~ s/[\n ]//g;
