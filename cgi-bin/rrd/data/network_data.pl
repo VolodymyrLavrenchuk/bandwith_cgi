@@ -7,8 +7,8 @@ require "$cur_dir/../common/update_table.pl";
 require "$cur_dir/../common/network_list.pl";
 
 my (@field_options) = (
-    "DS:in:DERIVE:600:0:12500000",
-    "DS:out:DERIVE:600:0:12500000"
+    "DS:in:COUNTER:600:U:U",
+    "DS:out:COUNTER:600:U:U"
 );
 
 for $port(@ports){
@@ -17,8 +17,8 @@ for $port(@ports){
 
 sub ProcessPort
 {
-	my $in = `snmpget -v 1 -c public -Oqv tp-link IF-MIB::ifInOctets.$_[1]`;
-	my $out = `snmpget -v 1 -c public -Oqv tp-link IF-MIB::ifOutOctets.$_[1]`;
+	my $in = `snmpget -v 2c -c public -Oqv tp-link IF-MIB::ifHCInOctets.$_[1]`;
+	my $out = `snmpget -v 2c -c public -Oqv tp-link IF-MIB::ifHCOutOctets.$_[1]`;
 
 	# remove eol chars
 	chomp($in);
