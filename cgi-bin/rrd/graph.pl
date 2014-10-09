@@ -38,24 +38,16 @@ print <<END
 <div id="menu"></div>
 <center>
 <span class='header'>$name</span>
-<br><br>
+<br>
 END
 ;
 
 print <<END
-Daily Graph (5 minute averages)
-<br>
 <img src='/images/$name-day.png'>
-<br>
-Weekly Graph (30 minute averages)
 <br>
 <img src='/images/$name-week.png'>
 <br>
-Monthly Graph (2 hour averages)
-<br>
 <img src='/images/$name-month.png'>
-<br>
-Yearly Graph (12 hour averages)
 <br>
 <img src='/images/$name-year.png'>
 END

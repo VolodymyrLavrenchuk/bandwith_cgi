@@ -10,7 +10,12 @@ my $img = '/www/images';
 
 sub BuildGraphs
 {
-    @periods = ("day","week","month","year");
+    @periods = (
+    {name => "day", label=> "daily, 5 minute averages"},
+    {name => "week", label=> "weekly, 30 minute averages"},
+    {name => "month", label=> "monthly, 2 hour averages"},
+    {name => "year", label=> "yearly, 12 hour averages"}
+    );
     foreach $period(@periods)
     {
         CreateGraph($period, @_);
@@ -21,14 +26,14 @@ sub GetBaseGraphOptions
 {
     ($period, $title, $file_prefix, $y_title) = @_;
     my (@options) = @{$_[4]};
-    return (@options,("$img/$file_prefix-$period.png",
-        "-s -1$period",
-        "-t $title",
+    return (@options,("$img/$file_prefix-$period->{name}.png",
+        "-s -1$period->{name}",
+        "-t $title ($period->{label})",
         "--lazy",
         "-h",
-        "80",
+        "250",
         "-w",
-        "600",
+        "1100",
         "-aPNG",
         "-v $y_title",
         "-r",
@@ -51,9 +56,9 @@ sub GetGraph
 
 sub CreateGraph
 {
-	($period, $title, $file_prefix, $y_title, $opt, @graphs_data) = @_;
-    
     my @graph_array   = GetBaseGraphOptions(@_);
+    
+    ($period, $title, $file_prefix, $y_title, $opt, @graphs_data) = @_;
     
     foreach $data(@graphs_data)
     {
@@ -62,5 +67,5 @@ sub CreateGraph
     
     RRDs::graph(@graph_array);
 
-	if ($ERROR = RRDs::error) { print "$0: unable to generate $period $file_prefix graph: $ERROR\n"; }
+	if ($ERROR = RRDs::error) { print "$0: unable to generate $period->{name} $file_prefix graph: $ERROR\n"; }
 }
