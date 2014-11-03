@@ -31,9 +31,9 @@ sub GetBaseGraphOptions
         "-t $title ($period->{label})",
         "--lazy",
         "-h",
-        "250",
+        "305",
         "-w",
-        "1100",
+        "1120",
         "-aPNG",
         "-v $y_title",
         "-r",
@@ -43,14 +43,16 @@ sub GetBaseGraphOptions
 
 sub GetGraph
 {
-    ($name,$var,$color,$legend,$prec,$y_title) = @_;
-    
+    ($name,$var,$color,$legend,$prec,$y_title, $newline) = @_;
+
+    my $last = ($newline) ? "\\n" : "";
+
     return ("DEF:$var$name=$rrd/$name.rrd:$var:AVERAGE",
         "LINE2:$var$name#$color:$legend",
-        "GPRINT:$var$name:MIN: Min\\: $prec %s",
-        "GPRINT:$var$name:MAX: Max\\: $prec %s",
-        "GPRINT:$var$name:AVERAGE: Avg\\: $prec %S",
-        "GPRINT:$var$name:LAST: Current\\: $prec %S$y_title\\n"
+        "GPRINT:$var$name:MIN:Min\\: $prec %s",
+        "GPRINT:$var$name:MAX:Max\\: $prec %s",
+        "GPRINT:$var$name:AVERAGE:Avg\\: $prec %S",
+        "GPRINT:$var$name:LAST:Cur\\: $prec %S$y_title$last"
     );
 }
 
@@ -60,9 +62,11 @@ sub CreateGraph
     
     ($period, $title, $file_prefix, $y_title, $opt, @graphs_data) = @_;
     
+    my $index;
+    my $size = @graphs_data;
     foreach $data(@graphs_data)
     {
-        push @graph_array,GetGraph($data->[0],$data->[1],$data->[2],$data->[3],$data->[4],$y_title);
+        push @graph_array,GetGraph($data->[0],$data->[1],$data->[2],$data->[3],$data->[4],$y_title, ($index++ % 2)||($size == $index));
     }
     
     RRDs::graph(@graph_array);
