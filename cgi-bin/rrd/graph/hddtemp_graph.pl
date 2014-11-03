@@ -12,6 +12,7 @@ for $drive (@drives){
     push @graphs_data,[
         $drive->{name},
         $drive->{name},
+        "1",
         $drive->{color},
         $drive->{sn},
         "%2.lf"];
