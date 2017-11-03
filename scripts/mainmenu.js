@@ -6,21 +6,21 @@ var hosts = [{
               links:[{
                   href:"/index.html",
                   title:"CPU\xa0load\xa0by\xa0cores"},{
-                  href:"/cgi-bin/rrd/graph.pl?trend=cpuload",
+                  href:"/cgi-bin/rrd/graph.pl?trend=cpuload&host=scorpion-oi",
                   title:"CPU\xa0load"},{
-                  href:"/cgi-bin/rrd/graph.pl?trend=cputemp",
+                  href:"/cgi-bin/rrd/graph.pl?trend=cputemp&host=scorpion-oi",
                   title:"CPU\xa0temperature"},{
-                  href:"/cgi-bin/rrd/graph.pl?trend=hddtemp",
+                  href:"/cgi-bin/rrd/graph.pl?trend=hddtemp&host=scorpion-oi",
                   title:"HDD\xa0temperature"},{
-                  href:"/cgi-bin/rrd/graph.pl?trend=traffic",
+                  href:"/cgi-bin/rrd/graph.pl?trend=traffic&host=scorpion-oi",
                   title:"Trafic\xa0in/out"},{
-                  href:"/cgi-bin/rrd/graph.pl?trend=network",
+                  href:"/cgi-bin/rrd/graph.pl?trend=network&host=scorpion-oi",
                   title:"Local\xa0network"
                 }]
             },{
                 title:"Scorpion-WS",
                 links:[{
-                  href:"",
+                  href:"/cgi-bin/rrd/graph.pl?trend=gputemp&host=scorpion-ws",
                   title:"GPU temperature"},{
                   href:"",
                   title:"GPU load"},{
