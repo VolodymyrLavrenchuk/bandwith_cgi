@@ -1,8 +1,8 @@
 #menu {
-    text-align: center;
+    text-align: left;
 }
 #menu div{
-    width: 200px;
+    width: 185px;
     height: 25px;
     opacity: 0.2;
     filter: alpha(opacity=20);
@@ -16,4 +16,8 @@
 }
 #menu div a:hover{
     text-decoration: none;
+}
+
+#menu select{
+  margin-right: 20px;
 }
