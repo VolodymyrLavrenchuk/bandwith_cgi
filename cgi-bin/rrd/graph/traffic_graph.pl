@@ -8,8 +8,8 @@ our @ifaces;
 
 my @graphs_data = ();
 for $iface (@ifaces){
-    push @graphs_data,[$iface->{name},"in","0.8",$iface->{color_in},"$iface->{name} in ","%5.1lf"];
-    push @graphs_data,[$iface->{name},"out","0.8",$iface->{color_out},"$iface->{name} out","%5.1lf"];
+    push @graphs_data,[$iface->{name},"in","1",$iface->{color_in},"$iface->{name} in ","%5.1lf"];
+    push @graphs_data,[$iface->{name},"out","1",$iface->{color_out},"$iface->{name} out","%5.1lf"];
 }
 my @opt = ("-l 0");
 BuildGraphs("traffic on Tiera", "traffic", "bytes/sec",\@opt,@graphs_data);
