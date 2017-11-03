@@ -3,7 +3,7 @@ use warnings;
 use RRDs;
 
 # define location of rrdtool databases
-my $rrd = '/var/lib/rrd';
+my $rrd = '/mnt/dbs/monitoring';
 
 # define location of images
 my $img = '/www/images';
@@ -43,11 +43,11 @@ sub GetBaseGraphOptions
 
 sub GetGraph
 {
-    ($name,$var,$multiplier,$color,$legend,$prec,$y_title, $newline) = @_;
+    ($host,$name,$var,$multiplier,$color,$legend,$prec,$y_title, $newline) = @_;
 
     my $last = ($newline) ? "\\n" : "";
 
-    return ("DEF:$var$name=$rrd/$name.rrd:$var:AVERAGE",
+    return ("DEF:$var$name=$rrd/$host/$name.rrd:$var:AVERAGE",
         "CDEF:c$var$name=$var$name,$multiplier,*",
         "LINE2:c$var$name#$color:$legend",
         "GPRINT:c$var$name:MIN:Min\\: $prec %s",
@@ -67,7 +67,7 @@ sub CreateGraph
     my $size = @graphs_data;
     foreach $data(@graphs_data)
     {
-        push @graph_array,GetGraph($data->[0],$data->[1],$data->[2],$data->[3],$data->[4],$data->[5],$y_title, ($index++ % 2)||($size == $index));
+        push @graph_array,GetGraph($data->[0],$data->[1],$data->[2],$data->[3],$data->[4],$data->[5],$data->[6],$y_title, ($index++ % 2)||($size == $index));
     }
 
 #     print @graph_array;
