@@ -3,7 +3,7 @@ use warnings;
 use RRDs;
 
 # define location of rrdtool databases
-my $rrd = '/var/lib/rrd';
+my $rrd = '/mnt/dbs/monitoring/scorpion-oi';
 
 sub ProcessTable
 {
@@ -12,7 +12,7 @@ sub ProcessTable
 	# if rrdtool database doesn't exist, create it
 	if (! -e "$rrd/$_[0].rrd")
 	{
-		print "creating rrd database for /var/lib/$name...\n";
+		print "creating rrd database for $rrd/$name...\n";
 		my @table_options = (
             "$rrd/$name.rrd",
 			"-s 300",
