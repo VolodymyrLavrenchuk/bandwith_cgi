@@ -2,11 +2,11 @@
     text-align: left;
 }
 #menu div{
-    width: 185px;
     height: 25px;
     opacity: 0.2;
     filter: alpha(opacity=20);
     display: inline-block;
+    margin-right: 60px;
 }
 #menu div a{
     display: block;
@@ -19,5 +19,5 @@
 }
 
 #menu select{
-  margin-right: 20px;
+  margin-right: 60px;
 }
