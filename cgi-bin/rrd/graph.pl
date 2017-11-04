@@ -1,23 +1,23 @@
 #! /opt/csw/bin/perl
 use warnings;
 
-my $name;
 my ($cur_dir) = __FILE__ =~ m{^(.*)/};
 
 # get the server name (or you could hard code some description here)
 #my $svrname = $ENV{'SERVER_NAME'};
 
 # get url parameters
-my @values = split(/&/, $ENV{'QUERY_STRING'});
-foreach my $i (@values) 
+my @qstring = split(/&/, $ENV{'QUERY_STRING'});
+my %qparams;
+foreach my $i (@qstring)
 {
-	($varname, $mydata) = split(/=/, $i);
-	if ($varname eq 'trend')
-	{
-		$name = $mydata;
-        require "$cur_dir/graph/${name}_graph.pl";
-	}
+	($parname, $value) = split(/=/, $i);
+   $qparams{ $parname } = $value;
 }
+
+require "$cur_dir/graph/$qparams{'host'}/$qparams{'trend'}.pl";
+
+my $name=$qparams{'trend'};
 
 print "Content-type: text/html;\n\n";
 print <<END
