@@ -22,13 +22,13 @@ var hosts = [{
                 links:[{
                   href:"/cgi-bin/rrd/graph.pl?trend=gputemp&host=scorpion-ws",
                   title:"GPU temperature"},{
-                  href:"",
+                  href:"/cgi-bin/rrd/graph.pl?trend=gpuload&host=scorpion-ws",
                   title:"GPU load"},{
-                  href:"",
+                  href:"/cgi-bin/rrd/graph.pl?trend=gpupower&host=scorpion-ws",
                   title:"GPU power"},{
-                  href:"",
+                  href:"/cgi-bin/rrd/graph.pl?trend=memload&host=scorpion-ws",
                   title:"Memory load"},{
-                  href:"",
+                  href:"/cgi-bin/rrd/graph.pl?trend=fanspeed&host=scorpion-ws",
                   title:"GPU fan speed"
                 }]
 }];
@@ -40,12 +40,16 @@ function initHostsList(parent){
   selectList.onchange = function(){ changeHost(this.selectedIndex); };
   parent.appendChild(selectList);
 
+  var curHost = getQueryVariable("host");
+
   for (var i = 0; i < hosts.length; i++) {
     var option = document.createElement("option");
     option.text = hosts[i].title;
     selectList.appendChild(option);
+    if(hosts[i].title.toLowerCase() === curHost){
+      selectList.selectedIndex = i;
+    }
   }
-  selectList.selectedIndex = 0;
   selectList.dispatchEvent(new Event('change'));
 }
 
