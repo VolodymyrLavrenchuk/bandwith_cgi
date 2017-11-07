@@ -22,14 +22,10 @@ var hosts = [{
                 links:[{
                   href:"/cgi-bin/rrd/graph.pl?trend=gputemp&host=scorpion-ws",
                   title:"GPU temperature"},{
-                  href:"/cgi-bin/rrd/graph.pl?trend=gpuload&host=scorpion-ws",
-                  title:"GPU load"},{
                   href:"/cgi-bin/rrd/graph.pl?trend=gpupower&host=scorpion-ws",
                   title:"GPU power"},{
-                  href:"/cgi-bin/rrd/graph.pl?trend=memload&host=scorpion-ws",
-                  title:"Memory load"},{
-                  href:"/cgi-bin/rrd/graph.pl?trend=fanspeed&host=scorpion-ws",
-                  title:"GPU fan speed"
+                  href:"/cgi-bin/rrd/graph.pl?trend=gpuload&host=scorpion-ws",
+                  title:"GPU load"
                 }]
 }];
 
