@@ -2,31 +2,41 @@ var opHigh = 100; // highest opacity level
 var opLow  = 20;  // lowest opacity level (should be the same as initial opacity in the CSS)
 
 var hosts = [{
-              title:"Scorpion-OI",
-              links:[{
-                  href:"/index.html",
-                  title:"CPU\xa0load\xa0by\xa0cores"},{
-                  href:"/cgi-bin/rrd/graph.pl?trend=cpuload&host=scorpion-oi",
-                  title:"CPU\xa0load"},{
-                  href:"/cgi-bin/rrd/graph.pl?trend=cputemp&host=scorpion-oi",
-                  title:"CPU\xa0temperature"},{
-                  href:"/cgi-bin/rrd/graph.pl?trend=hddtemp&host=scorpion-oi",
-                  title:"HDD\xa0temperature"},{
-                  href:"/cgi-bin/rrd/graph.pl?trend=traffic&host=scorpion-oi",
-                  title:"Trafic\xa0in/out"},{
-                  href:"/cgi-bin/rrd/graph.pl?trend=network&host=scorpion-oi",
-                  title:"Local\xa0network"
-                }]
-            },{
-                title:"Scorpion-WS",
-                links:[{
-                  href:"/cgi-bin/rrd/graph.pl?trend=gputemp&host=scorpion-ws",
-                  title:"GPU temperature"},{
-                  href:"/cgi-bin/rrd/graph.pl?trend=gpupower&host=scorpion-ws",
-                  title:"GPU power"},{
-                  href:"/cgi-bin/rrd/graph.pl?trend=gpuload&host=scorpion-ws",
-                  title:"GPU load"
-                }]
+  title:"Scorpion-OI",
+  links:[{
+      href:"/index.html",
+      title:"CPU\xa0load\xa0by\xa0cores"},{
+      href:"/cgi-bin/rrd/graph.pl?trend=cpuload&host=scorpion-oi",
+      title:"CPU\xa0load"},{
+      href:"/cgi-bin/rrd/graph.pl?trend=cputemp&host=scorpion-oi",
+      title:"CPU\xa0temperature"},{
+      href:"/cgi-bin/rrd/graph.pl?trend=hddtemp&host=scorpion-oi",
+      title:"HDD\xa0temperature"},{
+      href:"/cgi-bin/rrd/graph.pl?trend=traffic&host=scorpion-oi",
+      title:"Trafic\xa0in/out"},{
+      href:"/cgi-bin/rrd/graph.pl?trend=network&host=scorpion-oi",
+      title:"Local\xa0network"
+    }]
+},{
+    title:"Scorpion-WS",
+    links:[{
+      href:"/cgi-bin/rrd/graph.pl?trend=gputemp&host=scorpion-ws",
+      title:"GPU temperature"},{
+      href:"/cgi-bin/rrd/graph.pl?trend=gpupower&host=scorpion-ws",
+      title:"GPU power"},{
+      href:"/cgi-bin/rrd/graph.pl?trend=gpuload&host=scorpion-ws",
+      title:"GPU load"
+    }]
+},{
+    title:"Scorpion-JS",
+    links:[{
+      href:"/cgi-bin/rrd/graph.pl?trend=gputemp&host=scorpion-js",
+      title:"GPU temperature"},{
+      href:"/cgi-bin/rrd/graph.pl?trend=gpupower&host=scorpion-js",
+      title:"GPU power"},{
+      href:"/cgi-bin/rrd/graph.pl?trend=gpuload&host=scorpion-js",
+      title:"GPU load"
+    }]
 }];
 
 
