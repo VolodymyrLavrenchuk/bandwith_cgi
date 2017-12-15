@@ -24,9 +24,9 @@ sub BuildGraphs
 
 sub GetBaseGraphOptions
 {
-    ($period, $title, $file_prefix, $y_title) = @_;
+    ($period, $host, $title, $file_prefix, $y_title) = @_;
     my (@options) = @{$_[4]};
-    return (@options,("$img/$file_prefix-$period->{name}.png",
+    return (@options,("$img/$host-$file_prefix-$period->{name}.png",
         "-s -1$period->{name}",
         "-t $title ($period->{label})",
         "--lazy",
@@ -61,13 +61,13 @@ sub CreateGraph
 {
     my @graph_array   = GetBaseGraphOptions(@_);
     
-    ($period, $title, $file_prefix, $y_title, $opt, @graphs_data) = @_;
+    ($period, $host, $title, $file_prefix, $y_title, $opt, @graphs_data) = @_;
     
     my $index;
     my $size = @graphs_data;
     foreach $data(@graphs_data)
     {
-        push @graph_array,GetGraph($data->[0],$data->[1],$data->[2],$data->[3],$data->[4],$data->[5],$data->[6],$y_title, ($index++ % 2)||($size == $index));
+        push @graph_array,GetGraph($host, $data->[0],$data->[1],$data->[2],$data->[3],$data->[4],$data->[5],$y_title, ($index++ % 2)||($size == $index));
     }
 
     #print join("\n ", @graph_array);

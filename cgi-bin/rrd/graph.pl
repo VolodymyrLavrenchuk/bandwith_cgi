@@ -18,12 +18,13 @@ foreach my $i (@qstring)
 require "$cur_dir/graph/$qparams{'host'}/$qparams{'trend'}.pl";
 
 my $name=$qparams{'trend'};
+my $host=$qparams{'host'};
 
 print "Content-type: text/html;\n\n";
 print <<END
 <html>
 <head>
-  <TITLE>$name</TITLE>
+  <TITLE>$host - $name</TITLE>
   <META HTTP-EQUIV="Refresh" CONTENT="300">
   <META HTTP-EQUIV="Cache-Control" content="no-cache">
   <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
@@ -37,19 +38,19 @@ print <<END
 <body bgcolor="#83A4BA" text="#000000" link="#0000FF" vlink="#000080" alink="#FF0000" topMargin='5'>
 <div id="menu"></div>
 <center>
-<span class='header'>$name</span>
+<span class='header'>$host - $name</span>
 <br>
 END
 ;
 
 print <<END
-<img src='/images/$name-day.png'>
+<img src='/images/$host-$name-day.png'>
 <br>
-<img src='/images/$name-week.png'>
+<img src='/images/$host-$name-week.png'>
 <br>
-<img src='/images/$name-month.png'>
+<img src='/images/$host-$name-month.png'>
 <br>
-<img src='/images/$name-year.png'>
+<img src='/images/$host-$name-year.png'>
 END
 ;
 

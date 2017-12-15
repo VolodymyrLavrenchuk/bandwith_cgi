@@ -7,5 +7,6 @@
             {ip_address => "192_168_1_107", name => "Scorpion-c2d",number => "4",color_out => "CC00CC",color_in => "F59090"},
             {ip_address => "192_168_1_103", name => "Asus O-Play ",number => "6",color_out => "F2B646"},
             {ip_address => "192_168_1_105", name => "Masha-nb-lan",number => "10",color_out => "00FFFF"},
-            {ip_address => "192_168_1_115", name => "Olesja      ",number => "13",color_out => "FFFF00"}
+            {ip_address => "192_168_1_115", name => "Olesja      ",number => "13",color_out => "FFFF00"},
+            {ip_address => "192_168_1_124", name => "Scorpion-JS ",number => "11",color_out => "1C3135"}
             );
