@@ -35,7 +35,11 @@ var hosts = [{
       href:"/cgi-bin/rrd/graph.pl?trend=gpupower&host=scorpion-js",
       title:"GPU power"},{
       href:"/cgi-bin/rrd/graph.pl?trend=gpuload&host=scorpion-js",
-      title:"GPU load"
+      title:"GPU load"},{
+      href:"/cgi-bin/rrd/graph.pl?trend=memload&host=scorpion-js",
+      title:"GPU memory load"},{
+      href:"/cgi-bin/rrd/graph.pl?trend=fanspeed&host=scorpion-js",
+      title:"GPU fan speed"
     }]
 }];
 
