@@ -8,7 +8,7 @@ my $rrd = '/mnt/dbs/monitoring';
 # define location of images
 my $img = '/www/images';
 
-sub BuildGraphs
+sub BuildPeriodsGraphs
 {
     @periods = (
     {name => "day", label=> "daily, 5 minute averages"},

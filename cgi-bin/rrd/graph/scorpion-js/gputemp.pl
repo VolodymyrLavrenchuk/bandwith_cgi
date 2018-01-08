@@ -2,8 +2,8 @@
 use warnings;
 
 my ($cur_dir) = __FILE__ =~ m{^(.*)/};
-require "$cur_dir/build_js_graph.pl";
+require "$cur_dir/../../common/build_gpu_graphs.pl";
 
-BuildJSGraph("GPU temperature", "degrees C", "gputemp", "%2.1lf", ());
+BuildGPUGraphs(basename($cur_dir), "GPU temperature :: Palit JetStream GeForce GTX 1070Ti", "degrees C", "gputemp", "%2.1lf", ());
 
 1;

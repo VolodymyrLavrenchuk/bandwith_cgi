@@ -19,6 +19,6 @@ for $drive (@drives){
         "%2.lf"];
 }
 my @opt = ();
-BuildGraphs(basename($cur_dir), "hdd temperature :: hard disk drives", "hddtemp", "degrees C",\@opt,@graphs_data);
+BuildPeriodsGraphs(basename($cur_dir), "hdd temperature :: hard disk drives", "hddtemp", "degrees C",\@opt,@graphs_data);
 
 1;

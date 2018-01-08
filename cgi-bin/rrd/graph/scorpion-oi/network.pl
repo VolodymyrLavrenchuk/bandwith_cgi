@@ -20,6 +20,6 @@ for $port (@ports){
     }
 }
 my @opt = ("-l 0");
-BuildGraphs(basename($cur_dir), "Local network traffic", "network", "bytes/sec",\@opt,@graphs_data);
+BuildPeriodsGraphs(basename($cur_dir), "Local network traffic", "network", "bytes/sec",\@opt,@graphs_data);
 
 1;

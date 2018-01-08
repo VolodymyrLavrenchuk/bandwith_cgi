@@ -2,8 +2,8 @@
 use warnings;
 
 my ($cur_dir) = __FILE__ =~ m{^(.*)/};
-require "$cur_dir/build_js_graph.pl";
+require "$cur_dir/../../common/build_gpu_graphs.pl";
 
-BuildJSGraph("GPU load", "%%", "gpuload", "%3.1lf", ("-l 0"));
+BuildGPUGraphs(basename($cur_dir), "GPU load :: Palit JetStream GeForce GTX 1070Ti", "%%", "gpuload", "%3.1lf", ("-l 0"));
 
 1;
