@@ -2,11 +2,8 @@
 use warnings;
 use RRDs;
 
-# define location of rrdtool databases
-my $rrd = '/mnt/dbs/monitoring';
-
-# define location of images
-my $img = '/www/images';
+my ($cur_dir) = __FILE__ =~ m{^(.*)/};
+require "$cur_dir/defines.pl";
 
 sub BuildPeriodsGraphs
 {
@@ -26,7 +23,9 @@ sub GetBaseGraphOptions
 {
     ($period, $host, $title, $file_prefix, $y_title) = @_;
     my (@options) = @{$_[4]};
-    return (@options,("$img/$host-$file_prefix-$period->{name}.png",
+    our $imgs_dir;
+
+    return (@options,("$imgs_dir/$host-$file_prefix-$period->{name}.png",
         "-s -1$period->{name}",
         "-t $title ($period->{label})",
         "--lazy",
@@ -46,8 +45,9 @@ sub GetGraph
     ($host,$name,$var,$multiplier,$color,$legend,$prec,$y_title, $newline) = @_;
 
     my $last = ($newline) ? "\\n" : "";
+    our $rrd_dbs_dir;
 
-    return ("DEF:$var$name=$rrd/$host/$name.rrd:$var:AVERAGE",
+    return ("DEF:$var$name=$rrd_dbs_dir/$host/$name.rrd:$var:AVERAGE",
         "CDEF:c$var$name=$var$name,$multiplier,*",
         "LINE2:c$var$name#$color:$legend",
         "GPRINT:c$var$name:MIN:Min\\: $prec %s",

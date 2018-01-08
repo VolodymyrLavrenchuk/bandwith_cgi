@@ -3,11 +3,8 @@ use warnings;
 use File::Basename;
 
 my ($cur_dir) = __FILE__ =~ m{^(.*)/};
-require "$cur_dir/../../common/build_graphs.pl";
+require "$cur_dir/../../common/build_gpu_graphs.pl";
 
-my @graphs_data = (["gpu0","gputemp","1","0000FF","","%2.1lf"]);
-my @opt = ();
-
-BuildPeriodsGraphs(basename($cur_dir),"GPU temperature :: MSI GeForce GTX 1060", "gputemp", "degrees C", \@opt, @graphs_data);
+BuildGPUGraphs(basename($cur_dir), "GPU temperature :: MSI GeForce GTX 1060", "degrees C", "gputemp", "%2.1lf", ());
 
 1;
