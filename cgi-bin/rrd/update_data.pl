@@ -1,4 +1,5 @@
 #! /opt/csw/bin/perl
+use warnings;
 use RRDs;
 
 my ($cur_dir) = __FILE__ =~ m{^(.*)/};
@@ -27,6 +28,8 @@ foreach (@hosts){
         my ($filename) = $_ =~ m{^(.*)\.};
         print "processing: $cur_dir/xmls/$_\n";
         RRDs::restore "$cur_dir/xmls/$_", "$cur_dir/$filename.rrd", "-f";
+        my $ERR=RRDs::error;
+        die "ERROR while processing $cur_dir/xmls/$_: $ERR\n" if $ERR;
       }
   }
 }
