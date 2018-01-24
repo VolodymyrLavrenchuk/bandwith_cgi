@@ -21,11 +21,12 @@ sub BuildGPUGraphs
 
   foreach (@modules)
   {
+    next if (-d $_);
+    next unless ($_ =~ m/^gpu/);
     if (-f $host_dbs_dir . "/" . $_ )
     {
-      my ($filename) = $_ =~ /^(\w*)\.rrd/;
-      my ($idx) = $filename =~ /^gpu(\w*)/;
-      push @graphs_data,[$filename,$file_prefix,"1",$gpu_colors[$idx],"GPU$idx",$prec];
+      my ($idx) = $_ =~ /^gpu(\w*)\.rrd/;
+      push @graphs_data,["gpu$idx",$file_prefix,"1",$gpu_colors[$idx],"GPU$idx",$prec];
     }
   }
 
