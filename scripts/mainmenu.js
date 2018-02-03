@@ -21,11 +21,19 @@ var hosts = [{
     title:"Scorpion-WS",
     links:[{
       href:"/cgi-bin/rrd/graph.pl?trend=gputemp&host=scorpion-ws",
-      title:"GPU temperature"},{
+      title:"GPU\xa0temperature"},{
       href:"/cgi-bin/rrd/graph.pl?trend=gpupower&host=scorpion-ws",
-      title:"GPU power"},{
+      title:"GPU\xa0power"},{
       href:"/cgi-bin/rrd/graph.pl?trend=gpuload&host=scorpion-ws",
-      title:"GPU load"
+      title:"GPU\xa0load"},{
+      href:"/cgi-bin/rrd/graph.pl?trend=cpuload&host=scorpion-ws",
+      title:"CPU\xa0load"},{
+      href:"/cgi-bin/rrd/graph.pl?trend=cpucoresload&host=scorpion-ws",
+      title:"CPU\xa0load\xa0by\xa0cores"},{
+      href:"/cgi-bin/rrd/graph.pl?trend=cputemp&host=scorpion-ws",
+      title:"CPU\xa0temperature"},{
+      href:"/cgi-bin/rrd/graph.pl?trend=systemfanspeed&host=scorpion-ws",
+      title:"System\xa0fans\xa0speed"
     }]
 },{
     title:"Scorpion-JS",
