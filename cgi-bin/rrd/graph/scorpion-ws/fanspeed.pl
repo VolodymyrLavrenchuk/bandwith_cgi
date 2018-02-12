@@ -11,6 +11,6 @@ my @graphs_data = (
 );
 my @opt = ();
 
-BuildPeriodsGraphs(basename($cur_dir), "Rotation per minute fan speed", "systemfanspeed", "RPM", \@opt, @graphs_data);
+BuildPeriodsGraphs(basename($cur_dir), "Rotation per minute fan speed", "fanspeed", "RPM", \@opt, @graphs_data);
 
 1;
