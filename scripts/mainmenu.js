@@ -29,11 +29,13 @@ var hosts = [{
       href:"/cgi-bin/rrd/graph.pl?trend=cpuload&host=scorpion-ws",
       title:"CPU\xa0load"},{
       href:"/cgi-bin/rrd/graph.pl?trend=cpucoresload&host=scorpion-ws",
-      title:"CPU\xa0load\xa0by\xa0cores"},{
+      title:"CPU\xa0load"},{
       href:"/cgi-bin/rrd/graph.pl?trend=cputemp&host=scorpion-ws",
-      title:"CPU\xa0temperature"},{
-      href:"/cgi-bin/rrd/graph.pl?trend=systemfanspeed&host=scorpion-ws",
-      title:"System\xa0fans\xa0speed"
+      title:"CPU\xa0temp"},{
+      href:"/cgi-bin/rrd/graph.pl?trend=mbtemp&host=scorpion-ws",
+      title:"MB\xa0temp"},{
+      href:"/cgi-bin/rrd/graph.pl?trend=fanspeed&host=scorpion-ws",
+      title:"Fans\xa0speed"
     }]
 },{
     title:"Scorpion-JS",
