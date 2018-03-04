@@ -21,7 +21,7 @@ var hosts = [{
     title:"Scorpion-WS",
     links:[{
       href:"/cgi-bin/rrd/graph.pl?trend=gputemp&host=scorpion-ws",
-      title:"GPU\xa0temperature"},{
+      title:"GPU\xa0temp"},{
       href:"/cgi-bin/rrd/graph.pl?trend=gpupower&host=scorpion-ws",
       title:"GPU\xa0power"},{
       href:"/cgi-bin/rrd/graph.pl?trend=gpuload&host=scorpion-ws",
@@ -29,7 +29,7 @@ var hosts = [{
       href:"/cgi-bin/rrd/graph.pl?trend=cpuload&host=scorpion-ws",
       title:"CPU\xa0load"},{
       href:"/cgi-bin/rrd/graph.pl?trend=cpucoresload&host=scorpion-ws",
-      title:"CPU\xa0load"},{
+      title:"CPU\xa0cores\xa0load"},{
       href:"/cgi-bin/rrd/graph.pl?trend=cputemp&host=scorpion-ws",
       title:"CPU\xa0temp"},{
       href:"/cgi-bin/rrd/graph.pl?trend=mbtemp&host=scorpion-ws",
@@ -46,10 +46,14 @@ var hosts = [{
       title:"GPU power"},{
       href:"/cgi-bin/rrd/graph.pl?trend=gpuload&host=scorpion-js",
       title:"GPU load"},{
-      href:"/cgi-bin/rrd/graph.pl?trend=memload&host=scorpion-js",
+      href:"/cgi-bin/rrd/graph.pl?trend=gpumemload&host=scorpion-js",
       title:"GPU memory load"},{
-      href:"/cgi-bin/rrd/graph.pl?trend=fanspeed&host=scorpion-js",
-      title:"GPU fan speed"
+      href:"/cgi-bin/rrd/graph.pl?trend=gpufanspeed&host=scorpion-js",
+      title:"GPU fan speed"},{
+      href:"/cgi-bin/rrd/graph.pl?trend=cpuload&host=scorpion-js",
+      title:"CPU\xa0load"},{
+      href:"/cgi-bin/rrd/graph.pl?trend=cpucoresload&host=scorpion-js",
+      title:"CPU\xa0cores\xa0load"
     }]
 }];
 
