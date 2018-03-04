@@ -10,7 +10,7 @@ require "$cur_dir/file_helpers.pl";
 
 sub BuildGPUGraphs
 {
-  ($host, $title, $y_title, $file_prefix, $prec, @opt) = @_;
+  ($host, $title, $y_title, $file_prefix, $data_field, $prec, @opt) = @_;
 
   our @gpu_colors;
   our $rrd_dbs_dir;
@@ -26,7 +26,7 @@ sub BuildGPUGraphs
     if (-f $host_dbs_dir . "/" . $_ )
     {
       my ($idx) = $_ =~ /^gpu(\w*)\.rrd/;
-      push @graphs_data,["gpu$idx",$file_prefix,"1",$gpu_colors[$idx],"GPU$idx",$prec];
+      push @graphs_data,["gpu$idx",$data_field,"1",$gpu_colors[$idx],"GPU$idx",$prec];
     }
   }
 
