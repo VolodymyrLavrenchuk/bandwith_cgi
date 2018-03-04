@@ -7,7 +7,9 @@ my ($cur_dir) = __FILE__ =~ m{^(.*)/};
 require "$cur_dir/../../common/build_graphs.pl";
 
 my @graphs_data = (
-  ["cpu","cpufanspeed","1","0000FF","CPU fan","%2.1lf"]
+  ["cpu","cpufanspeed","1","FF0000","CPU fan","%2.1lf"],
+  ["mb","fan1speed","1","0000FF"," ","%2.1lf"]
+  
 );
 my @opt = ();
 
