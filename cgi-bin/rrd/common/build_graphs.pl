@@ -1,9 +1,8 @@
 #! /opt/csw/bin/perl
 use warnings;
 use RRDs;
-
-my ($cur_dir) = __FILE__ =~ m{^(.*)/};
-require "$cur_dir/defines.pl";
+use File::Spec::Functions;
+use Sys::Hostname;
 
 sub BuildPeriodsGraphs
 {
@@ -21,11 +20,13 @@ sub BuildPeriodsGraphs
 
 sub GetBaseGraphOptions
 {
-    ($period, $host, $title, $file_prefix, $y_title) = @_;
+    ($period, $title, $file_prefix, $y_title) = @_;
     my (@options) = @{$_[4]};
     our $imgs_dir;
 
-    return (@options,("$imgs_dir/$host-$file_prefix-$period->{name}.png",
+    my $hostname = hostname;
+
+    return (@options,(catdir($imgs_dir, "$hostname-$file_prefix-$period->{name}.png"),
         "-s -1$period->{name}",
         "-t $title ($period->{label})",
         "--lazy",
@@ -42,12 +43,14 @@ sub GetBaseGraphOptions
 
 sub GetGraph
 {
-    ($host,$name,$var,$multiplier,$color,$legend,$prec,$y_title, $newline) = @_;
+    ($name,$var,$multiplier,$color,$legend,$prec,$y_title, $newline) = @_;
 
     my $last = ($newline) ? "\\n" : "";
     our $rrd_dbs_dir;
+    (my $fixed_dir = $rrd_dbs_dir) =~ s/:/\\\:/;
+    my $db_path = catdir($fixed_dir,"$name.rrd");
 
-    return ("DEF:$var$name=$rrd_dbs_dir/$host/$name.rrd:$var:AVERAGE",
+    return ("DEF:$var$name=$db_path:$var:AVERAGE",
         "CDEF:c$var$name=$var$name,$multiplier,*",
         "LINE2:c$var$name#$color:$legend",
         "GPRINT:c$var$name:MIN:Min\\: $prec %s",
@@ -61,18 +64,20 @@ sub CreateGraph
 {
     my @graph_array   = GetBaseGraphOptions(@_);
     
-    ($period, $host, $title, $file_prefix, $y_title, $opt, @graphs_data) = @_;
+    ($period, $title, $file_prefix, $y_title, $opt, @graphs_data) = @_;
     
     my $index;
     my $size = @graphs_data;
     foreach $data(@graphs_data)
     {
-        push @graph_array,GetGraph($host, $data->[0],$data->[1],$data->[2],$data->[3],$data->[4],$data->[5],$y_title, ($index++ % 2)||($size == $index));
+        push @graph_array,GetGraph($data->[0],$data->[1],$data->[2],$data->[3],$data->[4],$data->[5],$y_title, ($index++ % 2)||($size == $index));
     }
 
-    #print join("\n ", @graph_array);
+   # print join("\n ", @graph_array);
     
     RRDs::graph(@graph_array);
 
 	if ($ERROR = RRDs::error) { print "$0: unable to generate $period->{name} $file_prefix graph: $ERROR\n"; }
 }
+
+1;

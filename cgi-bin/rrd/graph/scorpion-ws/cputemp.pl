@@ -1,10 +1,6 @@
 #! /opt/csw/bin/perl
 use warnings;
-use File::Basename;
-
-my ($cur_dir) = __FILE__ =~ m{^(.*)/};
-
-require "$cur_dir/../../common/build_graphs.pl";
+require "build_graphs.pl";
 
 my @graphs_data = (
   ["cpu","core0temp","1","0000FF","Core 1","%2.1lf"],
@@ -14,6 +10,6 @@ my @graphs_data = (
 );
 my @opt = ();
 
-BuildPeriodsGraphs(basename($cur_dir), "CPU temperature :: Intel Xeon X5450 Quad-core", "cputemp", "degrees C", \@opt, @graphs_data);
+BuildPeriodsGraphs("CPU temperature :: Intel Xeon X5450 Quad-core", "cputemp", "degrees C", \@opt, @graphs_data);
 
 1;
